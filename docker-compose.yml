@@ -1,0 +1,18 @@
+services:
+  dotnet-api:
+    image: mcr.microsoft.com/devcontainers/dotnet:1-9.0-bookworm
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
+    links:
+      - node-app
+    # ...
+
+  node-app:
+    image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: sleep infinity
+    # ...

@@ -1,0 +1,73 @@
+{
+	"name": "Node Container",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": [
+		"../../docker-compose.yml"
+	],
+	"service": "node-app",
+	"shutdownAction": "none",
+	"workspaceFolder": "/workspace/node-src",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"installYarnUsingApt": true,
+			"version": "lts",
+			"pnpmVersion": "latest",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/r3dpoint/devcontainer-features/tailwindcss-standalone-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/kreemer/features/chrometesting:1": {},
+		"ghcr.io/schlich/devcontainer-features/cypress:1": {},
+		"ghcr.io/schlich/devcontainer-features/playwright:0": {},
+		"ghcr.io/devcontainers-extra/features/angular-cli:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/jest:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/mocha:2": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+			"username": "root"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"amazonwebservices.amazon-q-vscode",
+				"Compulim.vscode-mocha",
+				"dbaeumer.vscode-eslint",
+				"firefox-devtools.vscode-firefox-debug",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"google.geminicodeassist",
+				"kilocode.kilo-code",
+				"Orta.vscode-jest",
+				"ms-azuretools.vscode-docker",
+				"ms-playwright.playwright",
+				"ms-vscode-remote.remote-containers",
+				"ms-vscode-remote.vscode-remote-extensionpack",
+				"ms-vscode-remote.remote-wsl",
+				"ms-vscode.vscode-typescript-next"
+			]
+		}
+	}
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

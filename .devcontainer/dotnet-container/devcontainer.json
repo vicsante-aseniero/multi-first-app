@@ -1,0 +1,65 @@
+{
+	"name": "DotC# (.NET) Container",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": [
+		"../../docker-compose.yml",
+		"docker-compose.keycloak.yml"
+	],
+	"service": "dotnet-api",
+	"shutdownAction": "none",
+	"workspaceFolder": "/workspace/dotnet-src",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/frntn/devcontainers-features/postman:1": {},
+		"ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {
+			"defaultUser": true,
+			"setLocale": true,
+			"theme": "robbyrussell",
+			"plugins": "git docker",
+			"desiredLocale": "en_US.UTF-8 UTF-8"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5000, 5001, 5204, 7159],
+	"portsAttributes": {
+			"5001": {
+				"protocol": "https"
+			},
+			"7159": {
+				"protocol": "https"
+			}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+                "amazonwebservices.amazon-q-vscode",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "google.geminicodeassist",
+                "humao.rest-client",
+                "kilocode.kilo-code",
+				"ms-dotnettools.csharp",
+				"ms-dotnettools.vscode-dotnet-runtime",
+				"ms-dotnettools.vscode-aspnet-core",
+				"ms-dotnettools.vscode-nuget-package-manager",
+				"ms-dotnettools.vscode-solution-explorer",
+				"ms-dotnettools.vscode-webview-debug",
+				"ms-azuretools.vscode-docker",
+				"ms-vscode-remote.remote-containers",
+				"ms-vscode-remote.vscode-remote-extensionpack",
+				"ms-vscode-remote.remote-wsl",
+                "PKief.material-icon-theme"	
+			]
+		}
+	}
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
