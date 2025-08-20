@@ -1,2 +1,3 @@
 # multi-first-app
-Multiple app on multiple dev container on a single Visual Code window.
+Multiple apps on multiple dev containers on a single Visual Code window.
+Front-end in Angular and Back-end in .NET API REST.
