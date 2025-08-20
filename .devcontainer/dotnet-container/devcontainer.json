@@ -7,29 +7,33 @@
 	],
 	"service": "dotnet-api",
 	"shutdownAction": "none",
-	"workspaceFolder": "/workspace/dotnet-src",
+	"workspaceFolder": "/workspace/api",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
+		"ghcr.io/dapr/cli/dapr-cli:0": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/protoc:1": {
+			"version": "latest"
+		},
 		"ghcr.io/frntn/devcontainers-features/postman:1": {},
-		"ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {
-			"defaultUser": true,
-			"setLocale": true,
-			"theme": "robbyrussell",
-			"plugins": "git docker",
-			"desiredLocale": "en_US.UTF-8 UTF-8"
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+			"username": "root"
 		}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [5000, 5001, 5204, 7159],
 	"portsAttributes": {
-			"5001": {
-				"protocol": "https"
-			},
-			"7159": {
-				"protocol": "https"
-			}
+		"5001": {
+			"protocol": "https"
+		},
+		"7159": {
+			"protocol": "https"
+		}
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
@@ -39,23 +43,37 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-                "amazonwebservices.amazon-q-vscode",
-                "GitHub.copilot",
-                "GitHub.copilot-chat",
-                "google.geminicodeassist",
-                "humao.rest-client",
-                "kilocode.kilo-code",
+				"amazonwebservices.amazon-q-vscode",
+				"dbaeumer.vscode-eslint",
+				"EditorConfig.EditorConfig",
+				"esbenp.prettier-vscode",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"google.geminicodeassist",
+				"humao.rest-client",
+				"kilocode.kilo-code",
+				"ms-azuretools.vscode-containers",
+				"ms-azuretools.vscode-docker",
+				"ms-edgedevtools.vscode-edge-devtools",
+				"ms-dotnettools.csdevkit",
 				"ms-dotnettools.csharp",
 				"ms-dotnettools.vscode-dotnet-runtime",
 				"ms-dotnettools.vscode-aspnet-core",
 				"ms-dotnettools.vscode-nuget-package-manager",
 				"ms-dotnettools.vscode-solution-explorer",
 				"ms-dotnettools.vscode-webview-debug",
-				"ms-azuretools.vscode-docker",
+				"ms-mssql.mssql",
+				"ms-mssql.data-workspace-vscode",
+				"ms-mssql.sql-bindings-vscode",
+				"ms-mssql.sql-database-projects-vscode",
+				"ms-vscode.csharp",
 				"ms-vscode-remote.remote-containers",
 				"ms-vscode-remote.vscode-remote-extensionpack",
 				"ms-vscode-remote.remote-wsl",
-                "PKief.material-icon-theme"	
+				"ms-vscode.vscode-typescript-next",
+				"PKief.material-icon-theme",
+				"Postman.postman-for-vscode",
+				"redhat.vscode-yaml"
 			]
 		}
 	}
